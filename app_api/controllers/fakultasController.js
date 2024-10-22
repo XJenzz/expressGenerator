@@ -36,7 +36,7 @@ const createFakultas = async(req, res) => {
 
 const updateFakultas = async(req, res) => {
     try{
-        const fakultas = await fakultas.findById(req.params.id);
+        const fakultas = await Fakultas.findById(req.params.id);
         if(!fakultas)
             return res.status(404).json({ message: "Fakultas not found"});
 
@@ -57,7 +57,7 @@ const updateFakultas = async(req, res) => {
 
 const deleteFakultas = async(req, res) => {
     try{
-        const fakultas = await fakultas.findById(req.params.id);
+        const fakultas = await Fakultas.findById(req.params.id);
         if(!fakultas)
             return res.status(404).json({ message: "Fakultas not found"});
 

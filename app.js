@@ -28,7 +28,7 @@ app.use('/', indexRouter);
 app.use('/prodi', prodiRouter)
 app.use('/users', usersRouter);
 app.use("/api/fakultas", fakultasRouter);
-
+app.use("/api/prodi", prodiRouter);
 connectDB();
 
 // catch 404 and forward to error handler
