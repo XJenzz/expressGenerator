@@ -2,8 +2,8 @@ const Prodi = require("../models/prodi");
 
 const getAllProdi = async(req, res) => {
     try{
-        const fakultas = await Fakultas.find();
-        res.status(200).json(fakultas);
+        const prodi = await Prodi.find().populate("fakultas_id","nama_singkatan");
+        res.status(200).json(prodi);
     }catch(err){
         res.status(500).json({ message: err.message});
     }
@@ -11,19 +11,20 @@ const getAllProdi = async(req, res) => {
 
 const getProdiById = async(req, res) => {
     try{
-        const fakultas = await Prodi.findById(req.params.id);
+        const prodi = await Prodi.findById(req.params.id);
         if(!prodi)
-            return res.status(404).json({ message:"Fakultas not found"});
+            return res.status(404).json({ message:"Prodi not found"});
         res.status(200).json(prodi);
     }catch(err){
-        res.status(300).json({ message: err.message});
+        res.status(500).json({ message: err.message});
     }
 };
 
 const createProdi = async(req, res) => {
-    const fakultas = new Prodi({
+    const prodi = new Prodi({
         nama: req.body.nama,
         singkatan: req.body.singkatan,
+        fakultas_id: req.body.fakultas_id,
     });
 
     try{
@@ -48,8 +49,12 @@ const updateProdi = async(req, res) => {
             prodi.singkatan = req.body.singkatan;
         }
 
-        const updateProdi = await prodi.save();
-        res.status(200).json(updateProdi);
+        if(req.body.fakultas_id != null) {
+            prodi.fakultas_id = req.body.fakultas_id;
+        }
+
+        const updatedProdi = await prodi.save();
+        res.status(200).json(updatedProdi);
     }catch (err){
         res.status(400).json({ message: err.message});
     }
