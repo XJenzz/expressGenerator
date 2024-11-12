@@ -10,7 +10,9 @@ const cors = require('cors');
 var indexRouter = require('./app_server/routes/index');
 var usersRouter = require('./app_server/routes/users');
 var prodiRouter = require('./app_server/routes/prodi');
-const fakultasRouter = require("./app_api/routes/fakultas");
+var fakultasRouter = require('./app_server/routes/fakultas');
+
+const fakultasRouterAPI = require("./app_api/routes/fakultas");
 const prodiRouterAPI= require("./app_api/routes/prodi");
 
 
@@ -31,7 +33,9 @@ app.use(cors());
 app.use('/', indexRouter);
 app.use('/prodi', prodiRouter)
 app.use('/users', usersRouter);
-app.use("/api/fakultas", fakultasRouter);
+app.use('/fakultas', fakultasRouter);
+
+app.use("/api/fakultas", fakultasRouterAPI);
 app.use("/api/prodi", prodiRouterAPI);
 connectDB();
 
