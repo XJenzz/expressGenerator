@@ -29,10 +29,12 @@ app.use(expressLayout);
 app.use(cors());
 
 app.use('/', indexRouter);
-app.use('/prodi', prodiRouter)
+app.use('/fakultas', fakultasRouter);
 app.use('/users', usersRouter);
-app.use("/api/fakultas", fakultasRouter);
-app.use("/api/prodi", prodiRouterAPI);
+app.use('/prodi', prodiRouter);
+
+app.use('/api/fakultas', fakultasRouterApi);
+app.use('/api/prodi', prodiRouterApi);
 connectDB();
 
 // catch 404 and forward to error handler
