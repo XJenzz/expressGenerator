@@ -14,7 +14,9 @@ var fakultasRouter = require('./app_server/routes/fakultas');
 
 const fakultasRouterAPI = require("./app_api/routes/fakultas");
 const prodiRouterAPI= require("./app_api/routes/prodi");
+const authRouterApi = require("./app_api/routes/auth");
 
+require("dotenv").config();
 
 var app = express();
 
@@ -37,6 +39,7 @@ app.use('/fakultas', fakultasRouter);
 
 app.use("/api/fakultas", fakultasRouterAPI);
 app.use("/api/prodi", prodiRouterAPI);
+app.use("/api/auth", authRouterApi);
 connectDB();
 
 // catch 404 and forward to error handler
