@@ -5,7 +5,7 @@ const index = async (req, res) => {
   try {
     // Mendapatkan data fakultas dari API eksternal
     const response = await axios.get(
-      "https://crud-express-seven.vercel.app/api/fakultas"
+      "https://express-generator-beta.vercel.app/api/fakultas"
     );
 
     // Data fakultas dari API
@@ -28,7 +28,7 @@ const store = async (req, res) => {
   const { nama, singkatan } = req.body;
   try {
     const response = await fetch(
-      "https://crud-express-seven.vercel.app/api/fakultas",
+      "https://express-generator-beta.vercel.app/api/fakultas",
       {
         method: "POST",
         headers: {

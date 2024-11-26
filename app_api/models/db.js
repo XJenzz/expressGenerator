@@ -7,7 +7,7 @@ const connectDB = async () => {
   try {
     // Menghubungkan ke MongoDB menggunakan URI koneksi
     await mongoose.connect(
-      "mongodb+srv://nurrachmat:BelajarMongo2024@cluster0.dzprir3.mongodb.net/mdpsi5a?retryWrites=true&w=majority&appName=Cluster0"
+      "mongodb+srv://yulianusjd:BelajarMongo18@cluster0.ionwj.mongodb.net/mdpdb?retryWrites=true&w=majority&appName=Cluster0"
       // "mongodb+srv://nurrachmat:BelajarMongo2024@cluster0.cltawz3.mongodb.net/mdpsi5a?retryWrites=true&w=majority&appName=Cluster0"
     );
     // Jika koneksi berhasil, log pesan ke konsol
