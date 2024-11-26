@@ -1,9 +1,13 @@
-var express = require('express');
+var express = require("express");
 var router = express.Router();
 
-// import controller
-const fakultasController = require("../controllers/fakultasController")
+// Import Controller
+const fakultasController = require("../controllers/fakultasController");
 
-router.get('/', fakultasController.index)  
+/* GET list fakultas. */
+router.get("/", fakultasController.index);
+
+// Route untuk menambahkan data fakultas
+router.post("/store", fakultasController.store);
 
 module.exports = router;
