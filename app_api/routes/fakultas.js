@@ -23,7 +23,7 @@ router.post(
   fakultasController.createFakultas
 );
 // Mengatur rute GET untuk mendapatkan data fakultas berdasarkan ID
-router.get("/:id",
+router.get("/:id", 
   authMiddleware,
   roleMiddleware("admin"),
   fakultasController.getFakultasById);
